@@ -1,0 +1,37 @@
+.color-fondo {
+    background-color: rosybrown;
+    margin: 0px;
+}
+
+/* .container-fluid {
+    background-color: #997979;
+    height: 33px;
+} */
+
+.banner {
+    background: linear-gradient(rgba(5, 7, 12, 0.19), rgba(5, 7, 12, 0.11)), url("../img/inicio.png") center left no-repeat;
+    height: 87vh;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 676px;
+    width: 100%;
+}
+
+.boton-ingreso {
+    background-color: orchid;
+}
+
+/* .navbar-inicio {
+    height: 33px;
+    width: 1366px;
+} */
+
+.logo {
+    width: 33px;
+}
+
+/*# sourceMappingURL=style.css.map */
