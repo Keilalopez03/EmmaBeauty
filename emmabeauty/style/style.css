@@ -1,34 +1,36 @@
 .color-fondo {
-  background-color: rosybrown;
-  margin: 0px;
+    background-color: rosybrown;
+    margin: 0px;
 }
 
 .banner {
-  background: linear-gradient(rgba(5, 7, 12, 0.19), rgba(5, 7, 12, 0.11)), url("../img/inicio.png") center left no-repeat;
-  height: 87vh;
-  background-size: cover;
-  background-attachment: fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 608px;
-  width: 100%;
+    background: linear-gradient(rgba(5, 7, 12, 0.19), rgba(5, 7, 12, 0.11)), url("../img/inicio.png") center left no-repeat;
+    height: 87vh;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 608px;
+    width: 100%;
 }
 
 .boton-ingreso {
-  background-color: orchid;
+    background-color: orchid;
 }
 
 .logo {
-  width: 33px;
-  margin-left: -28px;
+    width: 33px;
+    margin-left: -28px;
 }
 
 .texto-banner {
-  color: initial;
+    color: initial;
 }
 
 .tarjeta-index {
-  display: flex;
-}/*# sourceMappingURL=style.css.map */
+    display: flex;
+}
+
+/*# sourceMappingURL=style.css.map */
