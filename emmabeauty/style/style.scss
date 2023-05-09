@@ -24,6 +24,17 @@
 .texto-banner{
     color: initial;
 }
-.card-body{
+.card{
     background-color: tan !important ;
+}
+.card-img {
+width: 263px;
+border-radius: 10px;
+margin-right: 20px;
+}
+.card-text{
+    min-height: 144px;
+}
+.tarjeta1{
+    margin-top: 16px;  
 }
