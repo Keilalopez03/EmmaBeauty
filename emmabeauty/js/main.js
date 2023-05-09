@@ -1,7 +1,8 @@
 let nombreUsuario;
-let uñas = "1"
-let pestañas = "2"
-let cejas = "3"
+let uñas = "1";
+let pestañas = "2";
+let cejas = "3";
+let volver = "volver";
 
 function nombre() {
     nombreUsuario = prompt("introduce tu nombre:")
@@ -12,7 +13,7 @@ nombre()
 
 function servicios() {
     let opcionSeleccionada = prompt(`Hola ${nombreUsuario}, seleccione el servicio \n 1:uñas \n 2:pestañas \n 3:cejas \n 4:salir`)
-    while (opcionSeleccionada !=4 )
+    // while (opcionSeleccionada != 4) {
     switch (opcionSeleccionada) {
         case uñas:
             tiposUñas();
@@ -30,21 +31,29 @@ function servicios() {
 }
 
 
+
+
 function tiposUñas() {
     console.log("Apretaste uñas")
-    let opcionSeleccionada = prompt("Escriba el servicio de uñas a realizarse \n -semipermanente \n -Esculpidas \n -soft gel")
+    let opcionSeleccionada = prompt("Escriba el servicio de uñas a realizarse \n -semipermanente \n -Esculpidas \n -soft gel \n -Volver")
     alert(`${nombreUsuario}, comuniquese para sacar su turno de ${opcionSeleccionada} `)
 }
 
 function tiposPestañas() {
     console.log("Apretaste pestañas")
-    let opcionSeleccionada = prompt("Escriba el servicio de Pestañas a realizarse \n -Lifting \n -Service pestañas \n -Extensiones")
+    let opcionSeleccionada = prompt("Escriba el servicio de Pestañas a realizarse \n -Lifting \n -Service pestañas \n -Extensiones \n -Volver")
     alert(`${nombreUsuario}, comuniquese para sacar su turno de ${opcionSeleccionada} `)
 }
 
 function tiposCejas() {
 
     console.log("Apretaste cejas")
-    let opcionSeleccionada = prompt("Escriba el servicio de cejas a realizarse \n -Perfilado \n -Henna \n -Laminado")
+    let opcionSeleccionada = prompt("Escriba el servicio de cejas a realizarse \n -Perfilado \n -Henna \n -Laminado \n -Volver")
     alert(`${nombreUsuario}, comuniquese para sacar su turno de ${opcionSeleccionada} `)
 }
+
+function volverServicios() {
+    console.log("Volviste a opciones de servicios")
+    let (opcionSeleccionada === volver)
+}
+servicios()
