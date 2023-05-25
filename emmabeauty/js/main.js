@@ -9,7 +9,7 @@ const carritoPalabra = "CARRITO";
 const carrito = [];
 //funcion bienvenida al usuario y solicitud de nombre
 function nombre() {
-    nombreUsuario = prompt("introduce tu nombre:")
+    nombreUsuario = prompt("Introduce tu nombre:")
     alert(`Bienvenid@ ${nombreUsuario}!`)
     console.log(nombreUsuario)
 }
@@ -104,7 +104,6 @@ let ServiciosCejas = [{
     },
 ];
 function tiposUñas() {
-    console.log("Apretaste uñas")
     let textoOpciones = 'Escriba el servicio de uñas para añadir al carrito \n \n';
     ServiciosUñas.map((servicios) => {
         textoOpciones = `${textoOpciones}${servicios.id}-${servicios.servicio} ---> 🕘Tiempo aprox: ${servicios.tiempo}HS, 💵Precio: $${servicios.precio} \n`;
@@ -149,12 +148,25 @@ function tiposPestañas() {
     }
 }
 function tiposCejas() {
-    console.log("Apretaste cejas")
-    let opcionSeleccionada = prompt("Escriba el servicio de cejas a realizarse \n -Perfilado \n -Henna \n -Laminado \n -Volver")
+    let textoOpciones = 'Escriba el servicio de Cejas para añadir al carrito \n \n';
+    ServiciosCejas.map((servicios) => {
+        textoOpciones = `${textoOpciones}${servicios.id}-${servicios.servicio} ---> 🕘Tiempo aprox: ${servicios.tiempo}HS, 💵Precio: $${servicios.precio} \n`;
+    });
+    let opcionSeleccionada = prompt(textoOpciones + '\n -Volver \n --Escribe "Carrito" para ver tus servicios seleccionados.');
     if (opcionSeleccionada && opcionSeleccionada.toUpperCase() === volver) {
-        servicios()
+        servicios();
+    } else if (opcionSeleccionada && opcionSeleccionada.toUpperCase() === carritoPalabra) {
+        verCarrito();
     } else {
-        alert(`${nombreUsuario}, comuniquese para sacar su turno de ${opcionSeleccionada} `)
+        const servicioSeleccionado = ServiciosCejas.find((servicio) => {
+            return servicio.id == opcionSeleccionada;
+        });
+        if (servicioSeleccionado) {
+            carrito.push(servicioSeleccionado);
+            alert(`Se agregó el servicio al carrito correctamente.`);
+        } else {
+            alert(`El servicio seleccionado no es valido.`);
+        }
     }
 }
 function verCarrito() {
