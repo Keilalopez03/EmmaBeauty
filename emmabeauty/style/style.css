@@ -1,10 +1,16 @@
+.contenedor-tarjetas {
+  display: grid;
+  grid-template-columns: 4fr 4fr 4fr 4fr;
+  grid-template-rows: 380px 380px 380px 380px;
+}
+
 .color-fondo {
   background-color: rosybrown;
   margin: 0px;
 }
 
 .banner {
-  background: linear-gradient(rgba(5, 7, 12, 0.19), rgba(5, 7, 12, 0.11)), url("../img/inicio.png") center left no-repeat;
+  background: linear-gradient(rgba(5, 7, 12, 0.72), rgba(5, 7, 12, 0.11)), url(../img/inicio.png) center left no-repeat;
   height: 87vh;
   background-size: cover;
   background-attachment: fixed;
@@ -26,10 +32,10 @@
 }
 
 .texto-banner {
-  color: initial;
+  color: white;
 }
 
-.card {
+.card-cont {
   background-color: tan !important;
 }
 
@@ -45,4 +51,43 @@
 
 .tarjeta1 {
   margin-top: 16px;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1040;
+  opacity: 0;
+  transition: opacity 0.15s linear;
+  pointer-events: none;
+}
+
+.modal-backdrop.fade.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+.modal-dialog {
+  max-width: 400px;
+  margin: 1.75rem auto;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+#miModal {
+  display: none;
+  overflow: hidden;
+}
+
+#closeSesion {
+  display: none;
 }/*# sourceMappingURL=style.css.map */

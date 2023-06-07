@@ -1,9 +1,12 @@
+@import "manicuria";
+
 .color-fondo {
     background-color: rosybrown;
     margin: 0px;
 }
+
 .banner {
-    background: linear-gradient(rgba(5, 7, 12, 0.19), rgba(5, 7, 12, 0.11)), url("../img/inicio.png") center left no-repeat;
+    background: linear-gradient(rgb(5 7 12 / 72%), rgba(5, 7, 12, 0.11)), url(../img/inicio.png) center left no-repeat;
     height: 87vh;
     background-size: cover;
     background-attachment: fixed;
@@ -14,27 +17,73 @@
     height: 608px;
     width: 100%;
 }
+
 .boton-ingreso {
     background-color: orchid;
 }
+
 .logo {
     width: 33px;
     margin-left: -28px;
 }
-.texto-banner{
-    color: initial;
+
+.texto-banner {
+    color: white;
 }
-.card{
-    background-color: tan !important ;
+
+.card-cont {
+    background-color: tan !important;
 }
+
 .card-img {
-width: 263px;
-border-radius: 10px;
-margin-right: 20px;
+    width: 263px;
+    border-radius: 10px;
+    margin-right: 20px;
 }
-.card-text{
+
+.card-text {
     min-height: 144px;
 }
-.tarjeta1{
-    margin-top: 16px;  
+
+.tarjeta1 {
+    margin-top: 16px;
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+    opacity: 0;
+    transition: opacity 0.15s linear;
+    pointer-events: none;
+}
+
+.modal-backdrop.fade.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-open {
+    overflow: hidden;
+}
+
+.modal-dialog {
+    max-width: 400px;
+    margin: 1.75rem auto;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+#miModal {
+    display: none;
+    overflow: hidden;
+}
+
+#closeSesion {
+    display: none;
 }
