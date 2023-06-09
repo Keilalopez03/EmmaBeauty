@@ -13,15 +13,24 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <link rel="icon" href="../emmabeauty/img/favicon.png">
+    <link rel="icon" href="../img/faviconpestaña.png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/style.css">
-    <title>Manicuria</title>
+    <title>Pestañas</title>
 </head>
 
 <body class="color-fondo" >
+    <button class="floating-button" onclick="openModal()"><img src="../img/icons8-carro-favorito-24.png" alt="Carrito" width="30"
+        height="30"></button>
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Tu carrito de servicios seleccionados</h2>
+        <p>Aquí puedes agregar tus elementos de compra y contenido adicional.</p>
+    </div>
+</div>
     <nav class=" navbar-inicio navbar bg-body-tertiary">
         <div class="container-fluid">
             <img class="logo" src="../img/icons8-cuidado-del-spa-64.png" alt="">
@@ -39,42 +48,22 @@
     </nav>
     <div class="contenedor-tarjetas">
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="../img/semi-tarj.jpg" alt="imagen uñas Semipermanente">
+            <img class="card-img-top" src="../img/lifting-tarj.jpg" alt="imagen uñas Semipermanente">
             <div class="card-body">
-                <h5 class="card-title">Semipermanente</h5>
-                <p class="card-text">El esmaltado semipermanente es un sistema de duración corta, entorno 2-3 semanas, sin hacer extensión de la uña.</p>
-                <h5 class="info-hora">🕘Hora aprox: 2.5HS</h5>
-                <h5 class="info-precio">💵Precio: $2000</h5>
-                <a href="#" class="btn btn-primary">Agregar al carrito</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="../img/kapping-tarj.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Kapping</h5>
-                <p class="card-text">La manicura kapping consiste en aplicar una fina capa de acrílico o gel fortificador sobre la uña que actúa como una barrera protectora</p>
+                <h5 class="card-title">Lifting</h5>
+                <p class="card-text">Es un tratamiento que eleva la curvatura de tus pestañas, resaltando la expresión de la mirada y alargando las pestañas desde la raíz, sin utilizar pelo sintético..</p>
                 <h5 class="info-hora">🕘Hora aprox: 3HS</h5>
-                <h5  class="info-precio">💵Precio: $2500</h5>
+                <h5 class="info-precio">💵Precio: $2500</h5>
                 <a href="#" class="btn btn-primary">Agregar al carrito</a>
             </div>
         </div>
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="../img/esculpidas.tarj" alt="Card image cap">
+            <img class="card-img-top" src="../img/extensiones-tarj.jpg" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Esculpidas</h5>
-                <p class="card-text">Las uñas esculpidas son extensiones que se construyen a partir de la uña natural con material acrílico o gel</p>
-                <h5 class="info-hora">🕘Hora aprox: 4.5HS</h5>
-                <h5  class="info-precio" >💵Precio: $4000</h5>
-                <a href="#" class="btn btn-primary">Agregar al carrito</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="../img/manicuria-rusa-tarj.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Manicuria Rusa</h5>
-                <p class="card-text">La manicura rusa se realiza en seco y se centra en las cutículas.</p>
-                <h5 class="info-hora">🕘Hora aprox: 2HS</h5>
-                <h5  class="info-precio">💵Precio: $1500</h5>
+                <h5 class="card-title">Extensiones de pestañas</h5>
+                <p class="card-text"> A cada pelo de tu pestaña se añade uno nuevo de material sintético o seda pegado con un pegamento especial y con una técnica llevada a cabo por una profesional.</p>
+                <h5 class="info-hora">🕘Hora aprox: 4HS</h5>
+                <h5  class="info-precio">💵Precio: $3000</h5>
                 <a href="#" class="btn btn-primary">Agregar al carrito</a>
             </div>
         </div>

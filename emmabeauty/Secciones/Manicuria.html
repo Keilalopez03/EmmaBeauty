@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <link rel="icon" href="../emmabeauty/img/favicon.png">
+    <link rel="icon" href="../img/faviconuña.png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +22,15 @@
 </head>
 
 <body class="color-fondo" >
+    <button class="floating-button" onclick="openModal()"><img src="../img/icons8-carro-favorito-24.png" alt="Carrito" width="30"
+        height="30"></button>
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Tu carrito de servicios seleccionados</h2>
+        <p>Aquí puedes agregar tus elementos de compra y contenido adicional.</p>
+    </div>
+</div>
     <nav class=" navbar-inicio navbar bg-body-tertiary">
         <div class="container-fluid">
             <img class="logo" src="../img/icons8-cuidado-del-spa-64.png" alt="">

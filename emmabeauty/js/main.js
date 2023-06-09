@@ -7,7 +7,7 @@ const salir = "5";
 const volver = "VOLVER";
 const carritoPalabra = "CARRITO";
 const carrito = [];
-if(localStorage.getItem("name")) {
+if (localStorage.getItem("name")) {
     nombreUsuario = localStorage.getItem("name");
     var closeSesionButton = document.getElementById("closeSesion");
     closeSesionButton.style.display = "block";
@@ -251,4 +251,14 @@ function verCarrito() {
     if (opcionSeleccionada && opcionSeleccionada.toUpperCase() === volver) {
         servicios();
     };
+}
+
+function openModal() {
+    var modal = document.getElementById("modal");
+    modal.style.display = "block";
+}
+
+function closeModal() {
+    var modal = document.getElementById("modal");
+    modal.style.display = "none";
 }
