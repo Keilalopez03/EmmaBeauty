@@ -22,15 +22,19 @@
 </head>
 
 <body class="color-fondo" >
-    <button class="floating-button" onclick="openModal()"><img src="../img/icons8-carro-favorito-24.png" alt="Carrito" width="30"
-        height="30"></button>
-<div id="modal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2>Tu carrito de servicios seleccionados</h2>
-        <p>Aquí puedes agregar tus elementos de compra y contenido adicional.</p>
+    <button class="floating-button" onclick="openModal()"><img src="../img/icons8-carro-favorito-24.png" alt="Carrito" width="30" height="30"></button>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Modal de Compras</h2>
+            <p>Aquí puedes agregar tus elementos de compra y contenido adicional.</p>
+            <p>Este es solo un ejemplo básico.</p>
+            <div class="modal-buttons">
+                <button class="boton-finalizar" onclick="finalizarPedido()">Finalizar Pedido</button>
+                <button class="boton-finalizar" onclick="vaciarCarrito()">Vaciar Carrito</button>
+            </div>
+        </div>
     </div>
-</div>
     <nav class=" navbar-inicio navbar bg-body-tertiary">
         <div class="container-fluid">
             <img class="logo" src="../img/icons8-cuidado-del-spa-64.png" alt="">

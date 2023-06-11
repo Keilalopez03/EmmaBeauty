@@ -22,13 +22,17 @@
 </head>
 
 <body class="color-fondo">
-    <button class="floating-button" onclick="openModal()"><img src="./img/icons8-carro-favorito-24.png" alt="Carrito" width="30"
-            height="30"></button>
+    <button class="floating-button" onclick="openModal()"><img src="./img/icons8-carro-favorito-24.png" alt="Carrito" width="30" height="30"></button>
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Tu carrito de servicios seleccionados</h2>
+            <h2>Modal de Compras</h2>
             <p>Aquí puedes agregar tus elementos de compra y contenido adicional.</p>
+            <p>Este es solo un ejemplo básico.</p>
+            <div class="modal-buttons">
+                <button class="boton-finalizar" onclick="finalizarPedido()">Finalizar Pedido</button>
+                <button class="boton-finalizar" onclick="vaciarCarrito()">Vaciar Carrito</button>
+            </div>
         </div>
     </div>
     <div id="miModal" class="modal">
@@ -84,7 +88,8 @@
                                 cómodo y rentable indicado para vos. La manicura complementa tu imagen, sea cual sea tu
                                 estilo,
                                 y trasmite tu estilo personal a cuantos te rodean.</p>
-                            <button onclick="tiposUñas()" type="button" class="btn btn-primary">Sacar un
+                            <a href="./Secciones/Manicuria.html"></a>
+                            <button type="button" class="btn btn-primary">Sacar un
                                 Turno</button>
                         </div>
                     </div>
@@ -101,7 +106,8 @@
                                 perfectas. Miradas definidas y duraderas, uno de los servicios más exclusivos que tiene
                                 como
                                 resultado una mirada penetrante y sorprendentemente natural. ¡Intensifica tu mirada!</p>
-                            <button onclick="tiposCejas()" type="button" class="btn btn-primary">Sacar un Turno</button>
+                            <a href="./Secciones/Cejas.html"></a>
+                            <button type="button" class="btn btn-primary">Sacar un Turno</button>
                         </div>
                     </div>
                 </div>

@@ -262,3 +262,11 @@ function closeModal() {
     var modal = document.getElementById("modal");
     modal.style.display = "none";
 }
+
+function finalizarPedido() {
+    window.location.href = "https://api.whatsapp.com/send?phone=TUNUMERO&text=Hola,%20quiero%20hacer%20un%20pedido"; // Reemplaza TUNUMERO con tu número de WhatsApp
+}
+
+function vaciarCarrito() {
+    alert("¡Carrito vaciado!");
+}
