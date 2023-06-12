@@ -66,30 +66,8 @@ function saludoPrincipalPage() {
         textoBanner.innerHTML = `Bienvenid@ a Emma Beauty`
     }
 }
-//funcion para seleccionar opcion de servicios,menu principal del prompt
+//funcion para seleccionar opcion de servicios,menu principal 
 function servicios() {
-    // let opcionSeleccionada = prompt(`Hola ${nombreUsuario}, Seleccione el Numero de servicio \n 1:Uñas \n 2:Pestañas \n 3:Cejas \n 4:Ver carrito \n 5:Salir`)
-    // console.log(opcionSeleccionada)
-    // while (opcionSeleccionada != salir && opcionSeleccionada) {
-    //     switch (opcionSeleccionada) {
-    //         case uñas:
-    //             tiposUñas();
-    //             break;
-    //         case pestañas:
-    //             tiposPestañas();
-    //             break;
-    //         case cejas:
-    //             tiposCejas()
-    //             break;
-    //         case carritoNum:
-    //             verCarrito()
-    //             break;
-    //         default:
-    //             alert("Opcion incorrecta")
-    //             break;
-    //     }
-    //     opcionSeleccionada = prompt(`Hola ${nombreUsuario},  Seleccione el servicio \n 1:Uñas \n 2:Pestañas \n 3:Cejas \n 4:Ver carrito \n 5:Salir`)
-    // }
     var element = document.getElementById("targetElement");
     var rect = element.getBoundingClientRect();
     var scrollOffset = rect.top + rect.height / 2 - window.innerHeight / 2 + 50;
@@ -129,12 +107,6 @@ let ServiciosPestañas = [{
         servicio: "lifting",
         precio: 2500,
         tiempo: 3
-    },
-    {
-        id: 2,
-        servicio: "service de pestañas",
-        precio: 2000,
-        tiempo: 2
     },
     {
         id: 3,
@@ -233,7 +205,6 @@ function tiposCejas() {
 }
 
 function verCarrito() {
-    console.log("Apretaste verCarrito")
     let textoCarrito = "Servicios seleccionados para realizarse: \n \n";
     let totalTiempo = 0;
     let totalDinero = 0;
@@ -268,5 +239,5 @@ function finalizarPedido() {
 }
 
 function vaciarCarrito() {
-    alert("¡Carrito vaciado!");
+    
 }
