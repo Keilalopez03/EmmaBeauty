@@ -28,66 +28,16 @@
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
         <h2>Servicios seleccionados</h2>
-        <div class="card-container">
-            <div class="card-small">
-                <div class="card-small-content">
-                    <div class="card-small-image">
-                        <img class="mini-imagen" src="../img/faviconceja.png" alt="Mini imagen">
-                    </div>
-                    <div class="card-small-text">
-                        <h5 class="card-small-title">Semipermanente</h5>
-                        <p class="card-small-info">Precio: $XX</p>
-                        <p class="card-small-info">Hora aprox: XX:XX</p>
-                    </div>
-                    <div class="card-small-delete">
-                        <button class="delete-button" onclick="eliminarTarjeta()">
-                            <img src="../img/icons8-basura-llena-24.png" alt="Eliminar" width="24" height="24">
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="card-small">
-                <div class="card-small-content">
-                    <div class="card-small-image">
-                        <img class="mini-imagen" src="../img/faviconceja.png" alt="Mini imagen">
-                    </div>
-                    <div class="card-small-text">
-                        <h5 class="card-small-title">Semipermanente</h5>
-                        <p class="card-small-info">Precio: $XX</p>
-                        <p class="card-small-info">Hora aprox: XX:XX</p>
-                    </div>
-                    <div class="card-small-delete">
-                        <button class="delete-button" onclick="eliminarTarjeta()">
-                            <img src="../img/icons8-basura-llena-24.png" alt="Eliminar" width="24" height="24">
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="card-small">
-                <div class="card-small-content">
-                    <div class="card-small-image">
-                        <img class="mini-imagen" src="../img/faviconceja.png" alt="Mini imagen">
-                    </div>
-                    <div class="card-small-text">
-                        <h5 class="card-small-title">Semipermanente</h5>
-                        <p class="card-small-info">Precio: $XX</p>
-                        <p class="card-small-info">Hora aprox: XX:XX</p>
-                    </div>
-                    <div class="card-small-delete">
-                        <button class="delete-button" onclick="eliminarTarjeta()">
-                            <img src="../img/icons8-basura-llena-24.png" alt="Eliminar" width="24" height="24">
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="card-container" id="card-service-container"></div>
         <div class="modal-buttons">
             <button onclick="finalizarPedido()" type="button" class="btn btn-primary btn-sm boton-fin">Finalizar
                 Pedido</button>
             <button onclick="vaciarCarrito()" type="button" class="btn btn-primary btn-sm">Vaciar Carrito</button>
             <div class="icons">
-                <span>🕘:</span>
-                <span>💵:</span>
+                <span class="d-flex">🕘: <div id="time-estimated"></div>
+                </span>
+                <span class="d-flex">💵: <div id="price-total"></div>
+                </span>
             </div>
         </div>
     </div>

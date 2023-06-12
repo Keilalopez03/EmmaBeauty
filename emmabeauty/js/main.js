@@ -7,6 +7,74 @@ const salir = "5";
 const volver = "VOLVER";
 const carritoPalabra = "CARRITO";
 let carritoVar = {totalItems: 0, carrito: []};
+//Arrays con servicios
+let ServiciosUñas = [{
+    id: 1,
+    servicio: "Semipermanente",
+    precio: 2000,
+    tiempo: 2.5,
+    img: '../img/faviconuña.png',
+},
+{
+    id: 2,
+    servicio: "Kapping",
+    precio: 2500,
+    tiempo: 3,
+    img: '../img/faviconuña.png',
+},
+{
+    id: 3,
+    servicio: "Esculpidas",
+    precio: 4000,
+    tiempo: 4.5,
+    img: '../img/faviconuña.png',
+},
+{
+    id: 4,
+    servicio: "Manicuria Rusa",
+    precio: 1500,
+    tiempo: 2,
+    img: '../img/faviconuña.png',
+}
+];
+let ServiciosPestañas = [{
+    id: 1,
+    servicio: "Lifting",
+    precio: 2500,
+    tiempo: 3,
+    img: '../img/faviconpestaña.png',
+    },
+{
+    id: 3,
+    servicio: "Extensiones",
+    precio: 3000,
+    tiempo: 4,
+    img: '../img/faviconpestaña.png',
+},
+];
+let ServiciosCejas = [{
+    id: 1,
+    servicio: "perfilado",
+    precio: 1000,
+    tiempo: 0.50,
+    img: '../img/faviconceja.png',
+},
+{
+    id: 2,
+    servicio: "henna",
+    precio: 1500,
+    tiempo: 1,
+    img: '../img/faviconceja.png',
+},
+{
+    id: 3,
+    servicio: "laminado",
+    precio: 3000,
+    tiempo: 2,
+    img: '../img/faviconceja.png',
+},
+];
+
 if (localStorage.getItem("name")) {
     nombreUsuario = localStorage.getItem("name");
     var closeSesionButton = document.getElementById("closeSesion");
@@ -65,7 +133,7 @@ function cerrarSesion() {
 function saludoPrincipalPage() {
     const textoBanner = document.getElementsByClassName('texto-banner')[0];
     if (textoBanner && nombreUsuario) {
-        textoBanner.innerHTML = `Hola ${nombreUsuario}  bienvenid@ a Emma Beauty`
+        textoBanner.innerHTML = `Hola ${nombreUsuario} bienvenid@ a Emma Beauty`
     } else if(textoBanner){
         textoBanner.innerHTML = `Bienvenid@ a Emma Beauty`
     }
@@ -80,161 +148,67 @@ function servicios() {
         behavior: "smooth"
     });
 }
-//Arrays con servicios
-let ServiciosUñas = [{
-        id: 1,
-        servicio: "Semipermanente",
-        precio: 2000,
-        tiempo: 2.5
-    },
-    {
-        id: 2,
-        servicio: "Kapping",
-        precio: 2500,
-        tiempo: 3
-    },
-    {
-        id: 3,
-        servicio: "Esculpidas",
-        precio: 4000,
-        tiempo: 4.5
-    },
-    {
-        id: 4,
-        servicio: "Manicuria Rusa",
-        precio: 1500,
-        tiempo: 2
-    }
-];
-let ServiciosPestañas = [{
-        id: 1,
-        servicio: "lifting",
-        precio: 2500,
-        tiempo: 3
-    },
-    {
-        id: 3,
-        servicio: "extensiones",
-        precio: 3000,
-        tiempo: 4
-    },
-];
-let ServiciosCejas = [{
-        id: 1,
-        servicio: "perfilado",
-        precio: 1000,
-        tiempo: 0.50
-    },
-    {
-        id: 2,
-        servicio: "henna",
-        precio: 1500,
-        tiempo: 1
-    },
-    {
-        id: 3,
-        servicio: "laminado",
-        precio: 3000,
-        tiempo: 2
-    },
-];
-
-function tiposUñas() {
-    let textoOpciones = 'Escriba el servicio de uñas para añadir al carrito \n \n';
-    ServiciosUñas.map((servicios) => {
-        textoOpciones = `${textoOpciones}${servicios.id}-${servicios.servicio} ---> 🕘Tiempo aprox: ${servicios.tiempo}HS, 💵Precio: $${servicios.precio} \n`;
-    });
-    let opcionSeleccionada = prompt(textoOpciones + '\n -Volver \n --Escribe "Carrito" para ver tus servicios seleccionados.');
-    if (opcionSeleccionada && opcionSeleccionada.toUpperCase() === volver) {
-        servicios();
-    } else if (opcionSeleccionada && opcionSeleccionada.toUpperCase() === carritoPalabra) {
-        verCarrito();
-    } else {
-        const servicioSeleccionado = ServiciosUñas.find((servicio) => {
-            return servicio.id == opcionSeleccionada;
-        });
-        if (servicioSeleccionado) {
-            carrito.push(servicioSeleccionado);
-            alert(`Se agregó el servicio al carrito correctamente.`);
-        } else {
-            alert(`El servicio seleccionado no es valido.`);
-        }
-    }
-}
-
-function tiposPestañas() {
-    let textoOpciones = 'Escriba el servicio de Pestañas para añadir al carrito \n \n';
-    ServiciosPestañas.map((servicios) => {
-        textoOpciones = `${textoOpciones}${servicios.id}-${servicios.servicio} ---> 🕘Tiempo aprox: ${servicios.tiempo}HS, 💵Precio: $${servicios.precio} \n`;
-    });
-    let opcionSeleccionada = prompt(textoOpciones + '\n -Volver \n --Escribe "Carrito" para ver tus servicios seleccionados.');
-    if (opcionSeleccionada && opcionSeleccionada.toUpperCase() === volver) {
-        servicios();
-    } else if (opcionSeleccionada && opcionSeleccionada.toUpperCase() === carritoPalabra) {
-        verCarrito();
-    } else {
-        const servicioSeleccionado = ServiciosPestañas.find((servicio) => {
-            return servicio.id == opcionSeleccionada;
-        });
-        if (servicioSeleccionado) {
-            carritoVar.carrito.push(servicioSeleccionado);
-            carritoVar.totalItems++
-            localStorage.setItem("carrito", JSON.stringify({totalItems: carritoVar.totalItems, carrito: carritoVar.carrito}));
-            console.log("se agrega", servicioSeleccionado, localStorage.getItem("carrito"), carritoVar.carrito)
-            alert(`Se agregó el servicio al carrito correctamente.`);
-        } else {
-            alert(`El servicio seleccionado no es valido.`);
-        }
-    }
-}
-
-function tiposCejas() {
-    let textoOpciones = 'Escriba el servicio de Cejas para añadir al carrito \n \n';
-    ServiciosCejas.map((servicios) => {
-        textoOpciones = `${textoOpciones}${servicios.id}-${servicios.servicio} ---> 🕘Tiempo aprox: ${servicios.tiempo}HS, 💵Precio: $${servicios.precio} \n`;
-    });
-    let opcionSeleccionada = prompt(textoOpciones + '\n -Volver \n --Escribe "Carrito" para ver tus servicios seleccionados.');
-    if (opcionSeleccionada && opcionSeleccionada.toUpperCase() === volver) {
-        servicios();
-    } else if (opcionSeleccionada && opcionSeleccionada.toUpperCase() === carritoPalabra) {
-        verCarrito();
-    } else {
-        const servicioSeleccionado = ServiciosCejas.find((servicio) => {
-            return servicio.id == opcionSeleccionada;
-        });
-        if (servicioSeleccionado) {
-            carrito.push(servicioSeleccionado);
-            alert(`Se agregó el servicio al carrito correctamente.`);
-        } else {
-            alert(`El servicio seleccionado no es valido.`);
-        }
-    }
-}
-
-function verCarrito() {
-    let textoCarrito = "Servicios seleccionados para realizarse: \n \n";
-    let totalTiempo = 0;
-    let totalDinero = 0;
-    if (carrito.length === 0) {
-        textoCarrito = textoCarrito + '-No hay elementos en el carrito.'
-    } else {
-        carrito.map((servicioAgregado) => {
-            totalTiempo += servicioAgregado.tiempo;
-            totalDinero += servicioAgregado.precio;
-            textoCarrito = `${textoCarrito} -${servicioAgregado.servicio} $${servicioAgregado.precio} \n`;
-        });
-    }
-    textoCarrito = `${textoCarrito} \n 🕘 Tiempo Total: ${totalTiempo}HS    💵Dinero Total: $${totalDinero}\n \n *Escriba volver para regresar al menu principal`;
-    let opcionSeleccionada = prompt(textoCarrito);
-    if (opcionSeleccionada && opcionSeleccionada.toUpperCase() === volver) {
-        servicios();
-    };
-}
 
 function openModal() {
     var modal = document.getElementById("modal");
     modal.style.display = "block";
-    console.log(localStorage.getItem("carrito"))
+    const tarjetaContenedor = document.getElementById('card-service-container');
+    if(tarjetaContenedor) {
+        tarjetaContenedor.innerHTML = '';
+        let totalPrice = 0;
+        let totalTime = 0;
+        JSON.parse(localStorage.getItem("carrito")).carrito.map((servicio) => {
+            totalPrice += servicio.precio;
+            totalTime += servicio.tiempo;
+
+            const cardContainer = document.createElement("div");
+            const cardSmallContent = document.createElement("div");
+            const cardSmallImage = document.createElement("div");
+            const serviceLogoImg = document.createElement("img");
+            const cardSmallText = document.createElement("div");
+            const cardSmallTitle = document.createElement("h5");
+            const cardSmallInfoPrice = document.createElement("p");
+            const cardSmallInfoHour = document.createElement("p");
+            const cardSmallDelete = document.createElement("div");
+            const deleteButton = document.createElement("button");
+            const deleteImg = document.createElement("img");
+
+            cardContainer.classList.add("card-small");
+            cardSmallContent.classList.add("card-small-content");
+            cardSmallImage.classList.add("card-small-image");
+            serviceLogoImg.classList.add("mini-imagen");
+            serviceLogoImg.src = servicio.img;
+            cardSmallText.classList.add("card-small-text");
+            cardSmallTitle.classList.add("card-small-title");
+            cardSmallTitle.innerHTML = servicio.servicio;
+            cardSmallInfoPrice.classList.add("card-small-info");
+            cardSmallInfoPrice.innerHTML = 'Precio: $' + servicio.precio;
+            cardSmallInfoHour.classList.add("card-small-info");
+            cardSmallInfoHour.innerHTML = 'Hora aprox: ' + servicio.tiempo + 'HS';
+            cardSmallDelete.classList.add("card-small-delete");
+            deleteButton.classList.add("delete-button");
+            deleteImg.src = '../img/icons8-basura-llena-24.png';
+            deleteImg.classList.add("delete-button-img");
+
+            deleteButton.appendChild(deleteImg);
+            cardSmallDelete.appendChild(deleteButton);
+            cardSmallText.appendChild(cardSmallTitle);
+            cardSmallText.appendChild(cardSmallInfoHour);
+            cardSmallText.appendChild(cardSmallInfoPrice);
+            cardSmallImage.appendChild(serviceLogoImg);
+            cardSmallContent.appendChild(cardSmallImage);
+            cardSmallContent.appendChild(cardSmallText);
+            cardSmallContent.appendChild(cardSmallDelete);
+            cardContainer.appendChild(cardSmallContent);
+            tarjetaContenedor.appendChild(cardContainer);
+        });
+
+        const totalPriceElement = document.getElementById('price-total');
+        totalPriceElement.innerHTML = '$' + totalPrice;
+        const totalTimeElement = document.getElementById('time-estimated');
+        totalTimeElement.innerHTML = totalTime + 'HS';
+    }
+
 }
 
 function closeModal() {
@@ -250,9 +224,5 @@ function vaciarCarrito() {
 
 }
 
-function eliminarTarjeta(event) {
-    const tarjeta = event.target.closest('.card-small');
-    if (tarjeta) {
-        tarjeta.remove();
-    }
+function eliminarServicio(event) {
 }

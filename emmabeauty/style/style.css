@@ -294,12 +294,18 @@ body.modal-open {
 
 .card-container .card-small-content {
   border-bottom: 2px solid blueviolet;
+  padding-bottom: 10px;
 }
 
 .card-small-delete {
   display: flex;
   align-items: center;
   margin-top: 0px;
+}
+
+.delete-button-img {
+  width: 24px;
+  height: 24px;
 }
 
 .delete-button {
