@@ -239,5 +239,12 @@ function finalizarPedido() {
 }
 
 function vaciarCarrito() {
-    
+
+}
+
+function eliminarTarjeta(event) {
+    const tarjeta = event.target.closest('.card-small');
+    if (tarjeta) {
+        tarjeta.remove();
+    }
 }
