@@ -6,12 +6,13 @@ const carritoNum = "4";
 const salir = "5";
 const volver = "VOLVER";
 const carritoPalabra = "CARRITO";
-const carrito = [];
+let carritoVar = {totalItems: 0, carrito: []};
 if (localStorage.getItem("name")) {
     nombreUsuario = localStorage.getItem("name");
     var closeSesionButton = document.getElementById("closeSesion");
     closeSesionButton.style.display = "block";
     saludoPrincipalPage();
+    carritoVar = localStorage.getItem("carrito");
 } else {
     nombre();
 }
@@ -36,6 +37,7 @@ function nombre() {
     btnGuardar.addEventListener("click", function () {
         var nombre = inputNombre.value;
         nombreUsuario = nombre;
+        localStorage.setItem("carrito", JSON.stringify(carritoVar));
         const closeSesionButton = document.getElementById("closeSesion");
         closeSesionButton.style.display = "block";
         localStorage.setItem("name", nombre);
@@ -51,6 +53,8 @@ function nombre() {
 
 function cerrarSesion() {
     localStorage.removeItem("name");
+    localStorage.removeItem("carrito");
+    carritoVar = {totalItems: 0, carrito: []};
     const closeSesionButton = document.getElementById("closeSesion");
     closeSesionButton.style.display = "none";
     nombreUsuario = null;
@@ -62,7 +66,7 @@ function saludoPrincipalPage() {
     const textoBanner = document.getElementsByClassName('texto-banner')[0];
     if (textoBanner && nombreUsuario) {
         textoBanner.innerHTML = `Hola ${nombreUsuario}  bienvenid@ a Emma Beauty`
-    } else {
+    } else if(textoBanner){
         textoBanner.innerHTML = `Bienvenid@ a Emma Beauty`
     }
 }
@@ -173,7 +177,10 @@ function tiposPestañas() {
             return servicio.id == opcionSeleccionada;
         });
         if (servicioSeleccionado) {
-            carrito.push(servicioSeleccionado);
+            carritoVar.carrito.push(servicioSeleccionado);
+            carritoVar.totalItems++
+            localStorage.setItem("carrito", JSON.stringify({totalItems: carritoVar.totalItems, carrito: carritoVar.carrito}));
+            console.log("se agrega", servicioSeleccionado, localStorage.getItem("carrito"), carritoVar.carrito)
             alert(`Se agregó el servicio al carrito correctamente.`);
         } else {
             alert(`El servicio seleccionado no es valido.`);
@@ -227,6 +234,7 @@ function verCarrito() {
 function openModal() {
     var modal = document.getElementById("modal");
     modal.style.display = "block";
+    console.log(localStorage.getItem("carrito"))
 }
 
 function closeModal() {
