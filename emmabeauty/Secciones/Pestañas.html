@@ -22,19 +22,76 @@
 </head>
 
 <body class="color-fondo" >
-    <button class="floating-button" onclick="openModal()"><img src="../img/icons8-carro-favorito-24.png" alt="Carrito" width="30" height="30"></button>
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Modal de Compras</h2>
-            <p>Aquí puedes agregar tus elementos de compra y contenido adicional.</p>
-            <p>Este es solo un ejemplo básico.</p>
-            <div class="modal-buttons">
-                <button class="boton-finalizar" onclick="finalizarPedido()">Finalizar Pedido</button>
-                <button class="boton-finalizar" onclick="vaciarCarrito()">Vaciar Carrito</button>
+    <button class="floating-button" onclick="openModal()"><img src="../img/icons8-carro-favorito-24.png" alt="Carrito"
+        width="30" height="30"></button>
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Servicios seleccionados</h2>
+        <div class="card-container">
+            <div class="card-small">
+                <div class="card-small-content">
+                    <div class="card-small-image">
+                        <img class="mini-imagen" src="../img/faviconceja.png" alt="Mini imagen">
+                    </div>
+                    <div class="card-small-text">
+                        <h5 class="card-small-title">Semipermanente</h5>
+                        <p class="card-small-info">Precio: $XX</p>
+                        <p class="card-small-info">Hora aprox: XX:XX</p>
+                    </div>
+                    <div class="card-small-delete">
+                        <button class="delete-button" onclick="eliminarTarjeta()">
+                            <img src="../img/icons8-basura-llena-24.png" alt="Eliminar" width="24" height="24">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-small">
+                <div class="card-small-content">
+                    <div class="card-small-image">
+                        <img class="mini-imagen" src="../img/faviconceja.png" alt="Mini imagen">
+                    </div>
+                    <div class="card-small-text">
+                        <h5 class="card-small-title">Semipermanente</h5>
+                        <p class="card-small-info">Precio: $XX</p>
+                        <p class="card-small-info">Hora aprox: XX:XX</p>
+                    </div>
+                    <div class="card-small-delete">
+                        <button class="delete-button" onclick="eliminarTarjeta()">
+                            <img src="../img/icons8-basura-llena-24.png" alt="Eliminar" width="24" height="24">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-small">
+                <div class="card-small-content">
+                    <div class="card-small-image">
+                        <img class="mini-imagen" src="../img/faviconceja.png" alt="Mini imagen">
+                    </div>
+                    <div class="card-small-text">
+                        <h5 class="card-small-title">Semipermanente</h5>
+                        <p class="card-small-info">Precio: $XX</p>
+                        <p class="card-small-info">Hora aprox: XX:XX</p>
+                    </div>
+                    <div class="card-small-delete">
+                        <button class="delete-button" onclick="eliminarTarjeta()">
+                            <img src="../img/icons8-basura-llena-24.png" alt="Eliminar" width="24" height="24">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-buttons">
+            <button onclick="finalizarPedido()" type="button" class="btn btn-primary btn-sm boton-fin">Finalizar
+                Pedido</button>
+            <button onclick="vaciarCarrito()" type="button" class="btn btn-primary btn-sm">Vaciar Carrito</button>
+            <div class="icons">
+                <span>🕘:</span>
+                <span>💵:</span>
             </div>
         </div>
     </div>
+</div>
     <nav class=" navbar-inicio navbar bg-body-tertiary">
         <div class="container-fluid">
             <img class="logo" src="../img/icons8-cuidado-del-spa-64.png" alt="">
