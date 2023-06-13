@@ -35,7 +35,7 @@ let ServiciosUñas = [{
 }
 ];
 let ServiciosPestañas = [{
-    id: 1,
+    id: 5,
     servicio: "Lifting",
     precio: 2500,
     tiempo: 3,
@@ -43,7 +43,7 @@ let ServiciosPestañas = [{
     tipo: 'ServiciosPestañas'
     },
 {
-    id: 2,
+    id: 6,
     servicio: "Extensiones",
     precio: 3000,
     tiempo: 4,
@@ -52,24 +52,24 @@ let ServiciosPestañas = [{
 },
 ];
 let ServiciosCejas = [{
-    id: 1,
-    servicio: "perfilado",
+    id: 7,
+    servicio: "Perfilado",
     precio: 1000,
     tiempo: 0.50,
     img: '../img/faviconceja.png',
     tipo: 'ServiciosCejas'
 },
 {
-    id: 2,
-    servicio: "henna",
+    id: 8,
+    servicio: "Henna",
     precio: 1500,
     tiempo: 1,
     img: '../img/faviconceja.png',
     tipo: 'ServiciosCejas'
 },
 {
-    id: 3,
-    servicio: "laminado",
+    id: 9,
+    servicio: "Laminado",
     precio: 3000,
     tiempo: 2,
     img: '../img/faviconceja.png',
@@ -196,7 +196,7 @@ function refreshModalCarritoData() {
             deleteImg.src = '../img/icons8-basura-llena-24.png';
             deleteImg.classList.add("delete-button-img");
             deleteButton.addEventListener("click", function() {
-                eliminarServicio(servicio.id, eval(servicio.tipo));
+                eliminarServicio(servicio.id);
                 refreshModalCarritoData();
             });
 
@@ -230,10 +230,12 @@ function finalizarPedido() {
 }
 
 function vaciarCarrito() {
-
+carritoVar= {totalItems:0,carrito: []};
+localStorage.setItem("carrito", JSON.stringify(carritoVar));
+refreshModalCarritoData()
 }
 
-function eliminarServicio(idServicio, tipoServicio) {
+function eliminarServicio(idServicio) {
     const servicioIndex = carritoVar.carrito.findIndex((servicio) => {
         return idServicio == servicio.id
     });
@@ -243,11 +245,16 @@ function eliminarServicio(idServicio, tipoServicio) {
 }
 
 function agregarServicio(idServicio, tipoServicio) {
-    const servicioSeleccionado = tipoServicio.find(servicio => { return idServicio == servicio.id}); 
-    console.log(servicioSeleccionado, tipoServicio);
-    if(servicioSeleccionado) {
-        carritoVar.carrito.push(servicioSeleccionado);
-        carritoVar.totalItems++;
-        localStorage.setItem("carrito", JSON.stringify(carritoVar));
+    const servicioIndex = carritoVar.carrito.findIndex((servicio) => {
+        return idServicio == servicio.id
+    });
+    if(servicioIndex === -1) {
+        const servicioSeleccionado = tipoServicio.find(servicio => { return idServicio == servicio.id}); 
+        console.log(servicioSeleccionado, tipoServicio);
+        if(servicioSeleccionado) {
+            carritoVar.carrito.push(servicioSeleccionado);
+            carritoVar.totalItems++;
+            localStorage.setItem("carrito", JSON.stringify(carritoVar));
+        }
     }
 }
