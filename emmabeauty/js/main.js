@@ -1,11 +1,4 @@
 let nombreUsuario;
-const uñas = "1";
-const pestañas = "2";
-const cejas = "3";
-const carritoNum = "4";
-const salir = "5";
-const volver = "VOLVER";
-const carritoPalabra = "CARRITO";
 let carritoVar = {totalItems: 0, carrito: []};
 //Arrays con servicios
 let ServiciosUñas = [{
@@ -14,6 +7,7 @@ let ServiciosUñas = [{
     precio: 2000,
     tiempo: 2.5,
     img: '../img/faviconuña.png',
+    tipo: 'ServiciosUñas'
 },
 {
     id: 2,
@@ -21,6 +15,7 @@ let ServiciosUñas = [{
     precio: 2500,
     tiempo: 3,
     img: '../img/faviconuña.png',
+    tipo: 'ServiciosUñas'
 },
 {
     id: 3,
@@ -28,6 +23,7 @@ let ServiciosUñas = [{
     precio: 4000,
     tiempo: 4.5,
     img: '../img/faviconuña.png',
+    tipo: 'ServiciosUñas'
 },
 {
     id: 4,
@@ -35,6 +31,7 @@ let ServiciosUñas = [{
     precio: 1500,
     tiempo: 2,
     img: '../img/faviconuña.png',
+    tipo: 'ServiciosUñas'
 }
 ];
 let ServiciosPestañas = [{
@@ -43,13 +40,15 @@ let ServiciosPestañas = [{
     precio: 2500,
     tiempo: 3,
     img: '../img/faviconpestaña.png',
+    tipo: 'ServiciosPestañas'
     },
 {
-    id: 3,
+    id: 2,
     servicio: "Extensiones",
     precio: 3000,
     tiempo: 4,
     img: '../img/faviconpestaña.png',
+    tipo: 'ServiciosPestañas'
 },
 ];
 let ServiciosCejas = [{
@@ -58,6 +57,7 @@ let ServiciosCejas = [{
     precio: 1000,
     tiempo: 0.50,
     img: '../img/faviconceja.png',
+    tipo: 'ServiciosCejas'
 },
 {
     id: 2,
@@ -65,6 +65,7 @@ let ServiciosCejas = [{
     precio: 1500,
     tiempo: 1,
     img: '../img/faviconceja.png',
+    tipo: 'ServiciosCejas'
 },
 {
     id: 3,
@@ -72,6 +73,7 @@ let ServiciosCejas = [{
     precio: 3000,
     tiempo: 2,
     img: '../img/faviconceja.png',
+    tipo: 'ServiciosCejas'
 },
 ];
 
@@ -80,7 +82,7 @@ if (localStorage.getItem("name")) {
     var closeSesionButton = document.getElementById("closeSesion");
     closeSesionButton.style.display = "block";
     saludoPrincipalPage();
-    carritoVar = localStorage.getItem("carrito");
+    carritoVar = JSON.parse(localStorage.getItem("carrito"));
 } else {
     nombre();
 }
@@ -152,6 +154,10 @@ function servicios() {
 function openModal() {
     var modal = document.getElementById("modal");
     modal.style.display = "block";
+    refreshModalCarritoData();
+}
+
+function refreshModalCarritoData() {
     const tarjetaContenedor = document.getElementById('card-service-container');
     if(tarjetaContenedor) {
         tarjetaContenedor.innerHTML = '';
@@ -189,6 +195,10 @@ function openModal() {
             deleteButton.classList.add("delete-button");
             deleteImg.src = '../img/icons8-basura-llena-24.png';
             deleteImg.classList.add("delete-button-img");
+            deleteButton.addEventListener("click", function() {
+                eliminarServicio(servicio.id, eval(servicio.tipo));
+                refreshModalCarritoData();
+            });
 
             deleteButton.appendChild(deleteImg);
             cardSmallDelete.appendChild(deleteButton);
@@ -208,7 +218,6 @@ function openModal() {
         const totalTimeElement = document.getElementById('time-estimated');
         totalTimeElement.innerHTML = totalTime + 'HS';
     }
-
 }
 
 function closeModal() {
@@ -224,5 +233,21 @@ function vaciarCarrito() {
 
 }
 
-function eliminarServicio(event) {
+function eliminarServicio(idServicio, tipoServicio) {
+    const servicioIndex = carritoVar.carrito.findIndex((servicio) => {
+        return idServicio == servicio.id
+    });
+    carritoVar.carrito.splice(servicioIndex, 1);
+    carritoVar.totalItems--;
+    localStorage.setItem("carrito", JSON.stringify(carritoVar));
+}
+
+function agregarServicio(idServicio, tipoServicio) {
+    const servicioSeleccionado = tipoServicio.find(servicio => { return idServicio == servicio.id}); 
+    console.log(servicioSeleccionado, tipoServicio);
+    if(servicioSeleccionado) {
+        carritoVar.carrito.push(servicioSeleccionado);
+        carritoVar.totalItems++;
+        localStorage.setItem("carrito", JSON.stringify(carritoVar));
+    }
 }
