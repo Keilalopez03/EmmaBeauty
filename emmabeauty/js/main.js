@@ -1,82 +1,84 @@
 let nombreUsuario;
-let carritoVar = {totalItems: 0, carrito: []};
+let carritoVar = {
+    totalItems: 0,
+    carrito: []
+};
 //Arrays con servicios
 let ServiciosUñas = [{
-    id: 1,
-    servicio: "Semipermanente",
-    precio: 2000,
-    tiempo: 2.5,
-    img: '../img/faviconuña.png',
-    tipo: 'ServiciosUñas'
-},
-{
-    id: 2,
-    servicio: "Kapping",
-    precio: 2500,
-    tiempo: 3,
-    img: '../img/faviconuña.png',
-    tipo: 'ServiciosUñas'
-},
-{
-    id: 3,
-    servicio: "Esculpidas",
-    precio: 4000,
-    tiempo: 4.5,
-    img: '../img/faviconuña.png',
-    tipo: 'ServiciosUñas'
-},
-{
-    id: 4,
-    servicio: "Manicuria Rusa",
-    precio: 1500,
-    tiempo: 2,
-    img: '../img/faviconuña.png',
-    tipo: 'ServiciosUñas'
-}
+        id: 1,
+        servicio: "Semipermanente",
+        precio: 2000,
+        tiempo: 2.5,
+        img: '../img/faviconuña.png',
+        tipo: 'ServiciosUñas'
+    },
+    {
+        id: 2,
+        servicio: "Kapping",
+        precio: 2500,
+        tiempo: 3,
+        img: '../img/faviconuña.png',
+        tipo: 'ServiciosUñas'
+    },
+    {
+        id: 3,
+        servicio: "Esculpidas",
+        precio: 4000,
+        tiempo: 4.5,
+        img: '../img/faviconuña.png',
+        tipo: 'ServiciosUñas'
+    },
+    {
+        id: 4,
+        servicio: "Manicuria Rusa",
+        precio: 1500,
+        tiempo: 2,
+        img: '../img/faviconuña.png',
+        tipo: 'ServiciosUñas'
+    }
 ];
 let ServiciosPestañas = [{
-    id: 5,
-    servicio: "Lifting",
-    precio: 2500,
-    tiempo: 3,
-    img: '../img/faviconpestaña.png',
-    tipo: 'ServiciosPestañas'
+        id: 5,
+        servicio: "Lifting",
+        precio: 2500,
+        tiempo: 3,
+        img: '../img/faviconpestaña.png',
+        tipo: 'ServiciosPestañas'
     },
-{
-    id: 6,
-    servicio: "Extensiones",
-    precio: 3000,
-    tiempo: 4,
-    img: '../img/faviconpestaña.png',
-    tipo: 'ServiciosPestañas'
-},
+    {
+        id: 6,
+        servicio: "Extensiones",
+        precio: 3000,
+        tiempo: 4,
+        img: '../img/faviconpestaña.png',
+        tipo: 'ServiciosPestañas'
+    },
 ];
 let ServiciosCejas = [{
-    id: 7,
-    servicio: "Perfilado",
-    precio: 1000,
-    tiempo: 0.50,
-    img: '../img/faviconceja.png',
-    tipo: 'ServiciosCejas'
-},
-{
-    id: 8,
-    servicio: "Henna",
-    precio: 1500,
-    tiempo: 1,
-    img: '../img/faviconceja.png',
-    tipo: 'ServiciosCejas'
-},
-{
-    id: 9,
-    servicio: "Laminado",
-    precio: 3000,
-    tiempo: 2,
-    img: '../img/faviconceja.png',
-    tipo: 'ServiciosCejas'
-},
+        id: 7,
+        servicio: "Perfilado",
+        precio: 1000,
+        tiempo: 0.50,
+        img: '../img/faviconceja.png',
+        tipo: 'ServiciosCejas'
+    },
+    {
+        id: 8,
+        servicio: "Henna",
+        precio: 1500,
+        tiempo: 1,
+        img: '../img/faviconceja.png',
+        tipo: 'ServiciosCejas'
+    },
+    {
+        id: 9,
+        servicio: "Laminado",
+        precio: 3000,
+        tiempo: 2,
+        img: '../img/faviconceja.png',
+        tipo: 'ServiciosCejas'
+    },
 ];
-
 if (localStorage.getItem("name")) {
     nombreUsuario = localStorage.getItem("name");
     var closeSesionButton = document.getElementById("closeSesion");
@@ -88,10 +90,10 @@ if (localStorage.getItem("name")) {
 }
 
 function nombre() {
-    //Aca primero buscamos el elemento con id "miModal" presente en el HTML
+    //Aca primero busca el elemento con id "miModal" presente en el HTML
     var modal = document.getElementById("miModal");
     modal.style.display = "block";
-    //Aca creamos el Backdrop, para que se vea oscuro el fondo, no deje scrollear, ni tampoco deje hacer click.
+    //Aca creo el Backdrop, para que se vea oscuro el fondo, no deje scrollear, ni tampoco deje hacer click.
     var backdrop = document.createElement("div");
     //aca le agregamos las clases al backdrop que controlaran su estetica y comportamiento
     backdrop.classList.add("modal-backdrop", "fade", "show");
@@ -99,11 +101,11 @@ function nombre() {
     // hacemos que el "backdrop" aparezca adentro del "body"
     document.body.appendChild(backdrop);
     document.body.classList.add("modal-open");
-    //aca vamos a buscar por su id el "input de nombre" que es donde el usuario escribe su nombre, y el boton "guardar".
+    //aca  busca por su id el "input de nombre" que es donde el usuario escribe su nombre, y el boton "guardar".
     var inputNombre = document.getElementById("inputNombre");
     var btnGuardar = document.getElementById("btnGuardar");
-    //aca le agregamos un evento de escucha de "click", osea va a estar atento escuchando todo el tiempo si el usuario hizo click.
-    //en caso de hacer click se ejecuta la funcion que le pasemos como segundo parametro
+    //aca le agrego un evento de escucha de "click", osea va a estar atento escuchando todo el tiempo si el usuario hizo click.
+    //en caso de hacer click se ejecuta la funcion que le pase como segundo parametro
     btnGuardar.addEventListener("click", function () {
         var nombre = inputNombre.value;
         nombreUsuario = nombre;
@@ -116,7 +118,7 @@ function nombre() {
         document.body.classList.remove("modal-open");
         document.body.removeChild(backdrop);
         modal.style.display = "none";
-        //esta funcion va a actualizar el texto del banner con el nombre que ya tenemos guardado en la variable.
+        //esta funcion va a actualizar el texto del banner con el nombre que ya tengo guardado en la variable.
         saludoPrincipalPage();
     });
 }
@@ -124,7 +126,10 @@ function nombre() {
 function cerrarSesion() {
     localStorage.removeItem("name");
     localStorage.removeItem("carrito");
-    carritoVar = {totalItems: 0, carrito: []};
+    carritoVar = {
+        totalItems: 0,
+        carrito: []
+    };
     const closeSesionButton = document.getElementById("closeSesion");
     closeSesionButton.style.display = "none";
     nombreUsuario = null;
@@ -136,7 +141,7 @@ function saludoPrincipalPage() {
     const textoBanner = document.getElementsByClassName('texto-banner')[0];
     if (textoBanner && nombreUsuario) {
         textoBanner.innerHTML = `Hola ${nombreUsuario} bienvenid@ a Emma Beauty`
-    } else if(textoBanner){
+    } else if (textoBanner) {
         textoBanner.innerHTML = `Bienvenid@ a Emma Beauty`
     }
 }
@@ -159,7 +164,7 @@ function openModal() {
 
 function refreshModalCarritoData() {
     const tarjetaContenedor = document.getElementById('card-service-container');
-    if(tarjetaContenedor) {
+    if (tarjetaContenedor) {
         tarjetaContenedor.innerHTML = '';
         let totalPrice = 0;
         let totalTime = 0;
@@ -195,11 +200,10 @@ function refreshModalCarritoData() {
             deleteButton.classList.add("delete-button");
             deleteImg.src = '../img/icons8-basura-llena-24.png';
             deleteImg.classList.add("delete-button-img");
-            deleteButton.addEventListener("click", function() {
+            deleteButton.addEventListener("click", function () {
                 eliminarServicio(servicio.id);
                 refreshModalCarritoData();
             });
-
             deleteButton.appendChild(deleteImg);
             cardSmallDelete.appendChild(deleteButton);
             cardSmallText.appendChild(cardSmallTitle);
@@ -212,7 +216,6 @@ function refreshModalCarritoData() {
             cardContainer.appendChild(cardSmallContent);
             tarjetaContenedor.appendChild(cardContainer);
         });
-
         const totalPriceElement = document.getElementById('price-total');
         totalPriceElement.innerHTML = '$' + totalPrice;
         const totalTimeElement = document.getElementById('time-estimated');
@@ -224,15 +227,18 @@ function closeModal() {
     var modal = document.getElementById("modal");
     modal.style.display = "none";
 }
-
+//Te direcciona a whatsapp para coordinar turno
 function finalizarPedido() {
-    window.location.href = "https://api.whatsapp.com/send?phone=TUNUMERO&text=Hola,%20quiero%20hacer%20un%20pedido"; // Reemplaza TUNUMERO con tu número de WhatsApp
+    window.location.href = "https://wa.link/axdlll";
 }
 
 function vaciarCarrito() {
-carritoVar= {totalItems:0,carrito: []};
-localStorage.setItem("carrito", JSON.stringify(carritoVar));
-refreshModalCarritoData()
+    carritoVar = {
+        totalItems: 0,
+        carrito: []
+    };
+    localStorage.setItem("carrito", JSON.stringify(carritoVar));
+    refreshModalCarritoData()
 }
 
 function eliminarServicio(idServicio) {
@@ -248,10 +254,12 @@ function agregarServicio(idServicio, tipoServicio) {
     const servicioIndex = carritoVar.carrito.findIndex((servicio) => {
         return idServicio == servicio.id
     });
-    if(servicioIndex === -1) {
-        const servicioSeleccionado = tipoServicio.find(servicio => { return idServicio == servicio.id}); 
+    if (servicioIndex === -1) {
+        const servicioSeleccionado = tipoServicio.find(servicio => {
+            return idServicio == servicio.id
+        });
         console.log(servicioSeleccionado, tipoServicio);
-        if(servicioSeleccionado) {
+        if (servicioSeleccionado) {
             carritoVar.carrito.push(servicioSeleccionado);
             carritoVar.totalItems++;
             localStorage.setItem("carrito", JSON.stringify(carritoVar));
