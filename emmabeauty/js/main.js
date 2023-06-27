@@ -3,6 +3,9 @@ let carritoVar = {
     totalItems: 0,
     carrito: []
 };
+const maximoReseñas = 5;
+const maxRating = 5;
+const minimunRatingRandom = 3;
 //Arrays con servicios
 let ServiciosUñas = [{
         id: 1,
@@ -88,6 +91,7 @@ if (localStorage.getItem("name")) {
 } else {
     nombre();
 }
+generateRandomUsers();
 
 function nombre() {
     //Aca primero busca el elemento con id "miModal" presente en el HTML
@@ -238,7 +242,14 @@ function vaciarCarrito() {
         carrito: []
     };
     localStorage.setItem("carrito", JSON.stringify(carritoVar));
-    refreshModalCarritoData()
+    refreshModalCarritoData();
+    Toastify({
+        text: "El carrito fue restaurado correctamente",
+        style: {
+            background: "#96c93d",
+        },
+        duration: 3000,
+    }).showToast();
 }
 
 function eliminarServicio(idServicio) {
@@ -248,6 +259,13 @@ function eliminarServicio(idServicio) {
     carritoVar.carrito.splice(servicioIndex, 1);
     carritoVar.totalItems--;
     localStorage.setItem("carrito", JSON.stringify(carritoVar));
+    Toastify({
+        text: "Servicio eliminado correctamente",
+        style: {
+            background: "#96c93d",
+        },
+        duration: 3000,
+    }).showToast();
 }
 
 function agregarServicio(idServicio, tipoServicio) {
@@ -263,15 +281,75 @@ function agregarServicio(idServicio, tipoServicio) {
             carritoVar.carrito.push(servicioSeleccionado);
             carritoVar.totalItems++;
             localStorage.setItem("carrito", JSON.stringify(carritoVar));
+            Toastify({
+                text: "Servicio agregado al carrito",
+                style: {
+                    background: "#96c93d",
+                },
+                duration: 3000,
+            }).showToast();
         }
+    } else {
+        Toastify({
+            text: "Servicio ya en el carrito",
+            duration: 3000,
+            style: {
+                background: "#ff4040",
+            },
+        }).showToast();
     }
 }
-btnToast.addEventListener("click", () => {
-    Toastify({
 
-        text: "Servicio agregado al carrito",
+function generateRandomUsers() {
+    for (let i = 0; i < maximoReseñas; i++) {
+        fetch('https://randomuser.me/api/')
+            .then(response => response.json())
+            .then(data => {
+                const user = data.results[0];
+                console.log(user)
+                const name = user.name.first + ' ' + user.name.last;
+                const imageUrl = user.picture.large;
+                const date = generateRandomDate();
+                const rating = generateRandomRating();
 
-        duration: 3000
+                const userCarousel = document.getElementById('userCarousel');
+                const activeClass = i === 0 ? 'active' : '';
+                userCarousel.innerHTML += `
+            <div class="carousel-item ${activeClass}">
+              <img src="${imageUrl}" class="d-block perfil-foto" alt="${name}">
+              <div class="carousel-caption d-md-block">
+                <div class="d-flex nombre-reseña">${name}</div>
+                <div class="d-flex">
+                    <div>${rating}/${maxRating}</div>
+                    <div>${generateStars(rating)}</div>
+                </div>
+                <div class="fecha-reseña">${date}</div>
+            </div>
+            </div>
+          `;
+            });
+    }
+}
 
-    }).showToast();
-})
+function generateRandomDate() {
+    const sixMonthsAgo = new Date();
+    sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+    const now = new Date();
+    return new Date(sixMonthsAgo.getTime() + Math.random() * (now.getTime() - sixMonthsAgo.getTime())).toLocaleDateString();
+}
+
+function generateRandomRating() {
+    return (Math.random() * (maxRating - minimunRatingRandom) + minimunRatingRandom).toFixed(0);
+}
+
+function generateStars(rating) {
+    let stars = '';
+    for (let i = 0; i < maxRating; i++) {
+        if (i < rating) {
+            stars += '⭐';
+        } else {
+            stars += '☆';
+        }
+    }
+    return stars;
+}

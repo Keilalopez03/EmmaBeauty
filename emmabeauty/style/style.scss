@@ -69,6 +69,10 @@
     pointer-events: auto;
 }
 
+.close-button {
+    cursor:default;
+}
+
 .modal-open {
     overflow: hidden;
 }
@@ -124,6 +128,46 @@
     border: 1px solid #888;
     width: 80%;
     max-width: 449px;
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    width: 70%;
+}
+.carousel-inner {
+    width: 82%;
+    background: wheat;
+    border-radius: 12px;
+}
+.carousel-caption {
+    color: black;
+    left: 35% !important;
+    top: 12px;
+    padding-top: 0px !important;
+    left: 18% !important;
+}
+
+.carousel-control {
+    width: 30px !important;
+    height: 30px !important;
+}
+
+.nombre-reseña {
+    font-weight: 500;
+}
+
+.perfil-foto {
+    width: 15%;
+}
+
+.fecha-reseña {
+    display: flex;
+    justify-content: end;
+    font-size: 12px;
+    color: grey;
+    margin-top: 13px;
 }
 
 body.modal-open {
