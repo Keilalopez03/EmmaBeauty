@@ -266,3 +266,12 @@ function agregarServicio(idServicio, tipoServicio) {
         }
     }
 }
+btnToast.addEventListener("click", () => {
+    Toastify({
+
+        text: "Servicio agregado al carrito",
+
+        duration: 3000
+
+    }).showToast();
+})
